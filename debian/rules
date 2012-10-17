@@ -33,6 +33,10 @@ ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	done
 endif
 
+override_dh_install:
+	dh_install
+	dh_numpy
+
 ## immediately useable documentation
 ## and exemplar data (they are small excerpts anyway)
 override_dh_compress:
