@@ -10,8 +10,13 @@ include /usr/share/python/python.mk
 
 override_dh_auto_build:
 	dh_auto_build
+	echo "backend : Agg" >| build/matplotlibrc
+
 	: # and docs
-	PYTHONPATH=$(CURDIR)/$(call py_builddir_sh) $(MAKE) -C docs html
+	PYTHONPATH=$(CURDIR)/$(call py_builddir_sh) \
+	  MPLCONFIGDIR=$(CURDIR)/build \
+	  HOME=$(CURDIR)/build \
+	  $(MAKE) -C docs html
 	: # but remove jquery copy (later on link to Debian's version)
 	-rm build/html/_static/jquery.js
 	: # objects inventory is of no use for the package
@@ -23,7 +28,8 @@ override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	for v in $(shell pyversions -vr); do \
 		echo "I: Running PyMC unittests using python$$v"; \
-		python$$v /usr/bin/nosetests -v -s $(call py_builddir_sh, $$v)/pymc || exit 1 ;\
+		MPLCONFIGDIR=$(CURDIR)/build HOME=$(CURDIR)/build \
+		 python$$v /usr/bin/nosetests -v -s $(call py_builddir_sh, $$v)/pymc || exit 1 ;\
 	done
 endif
 

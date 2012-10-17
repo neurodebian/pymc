@@ -11,6 +11,7 @@ Build-Depends: debhelper (>= 7.2.18),
 	       python-sphinx,
 	       cython,
 	       python-tables,
+	       python-matplotlib,
 Standards-Version: 3.9.3
 Homepage: http://pymc-devs.github.com/pymc/
 Vcs-Browser: https://github.com/neurodebian/pymc
