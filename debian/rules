@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+include /usr/share/python/python.mk
+
+# one rule to rule them all ...
+%:
+# need to enforce distutils, since we also have a makefile
+	dh $@ --buildsystem=python_distutils --builddirectory=build
+
+override_dh_auto_build:
+	dh_auto_build
+	: # and docs
+	PYTHONPATH=$(CURDIR)/$(call py_builddir_sh) $(MAKE) -C docs html
+	: # but remove jquery copy (later on link to Debian's version)
+	-rm build/html/_static/jquery.js
+	: # objects inventory is of no use for the package
+	-rm build/html/objects.inv
+	: # also doc source files only consume space
+	-rm -r build/html/_sources
+
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	for v in $(shell pyversions -vr); do \
+		echo "I: Running PyMC unittests using python$$v"; \
+		python$$v /usr/bin/nosetests -v -s $(call py_builddir_sh, $$v)/pymc || exit 1 ;\
+	done
+endif
+
+## immediately useable documentation
+## and exemplar data (they are small excerpts anyway)
+override_dh_compress:
+	dh_compress -X.py -X.html -X.css -X.jpg -X.txt -X.js -X.json -X.rtc -X.par -X.bin
+

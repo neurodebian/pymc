@@ -1,0 +1,5 @@
+pymc (2.2-1) unstable; urgency=low
+
+  * Initial Debian release (Closes: #690800)
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Wed, 17 Oct 2012 14:04:52 -0400

@@ -1,0 +1,50 @@
+Source: pymc
+Section: python
+Priority: extra
+Maintainer: NeuroDebian Team <team@neuro.debian.net>
+Uploaders: Michael Hanke <michael.hanke@gmail.com>, Yaroslav Halchenko <debian@onerussian.com>
+Build-Depends: debhelper (>= 7.2.18),
+	       python-all-dev (>= 2.5),
+	       python-numpy (>= 1.6),
+	       python-scipy,
+	       python-nose,
+	       python-sphinx,
+	       cython,
+	       python-tables,
+Standards-Version: 3.9.3
+Homepage: http://pymc-devs.github.com/pymc/
+Vcs-Browser: http://git.debian.org/?p=pkg-exppsy/pymc.git
+Vcs-Git: git://git.debian.org/git/pkg-exppsy/pymc.git
+XS-Python-Version: >= 2.5
+
+Package: python-pymc
+Architecture: any
+Depends: ${misc:Depends}, ${python:Depends},
+	 python-numpy,
+	 python-scipy,
+	 python-matplotlib,
+	 python-nose
+Recommends: python-tables,
+Suggests: python-pydot, ipython
+Description: Bayesian statistical models and fitting algorithms
+ PyMC is a Python module that implements Bayesian statistical models
+ and fitting algorithms, including Markov chain Monte Carlo. Its
+ flexibility and extensibility make it applicable to a large suite of
+ problems. Along with core sampling functionality, PyMC includes
+ methods for summarizing output, plotting, goodness-of-fit and
+ convergence diagnostics.
+
+
+Package: python-pymc-doc
+Section: doc
+Architecture: all
+Depends: ${misc:Depends}, libjs-jquery
+Description: Bayesian statistical models and fitting algorithms
+ PyMC is a Python module that implements Bayesian statistical models
+ and fitting algorithms, including Markov chain Monte Carlo. Its
+ flexibility and extensibility make it applicable to a large suite of
+ problems. Along with core sampling functionality, PyMC includes
+ methods for summarizing output, plotting, goodness-of-fit and
+ convergence diagnostics.
+ .
+ This package provides the documentation in HTML format.
