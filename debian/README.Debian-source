@@ -1,0 +1,9 @@
+Packaging is based straight on the upstream's GIT repository, which
+serves as a canonical source for source distribution tarballs provided
+e.g. from pypi (and source distribution tarballs do not contain the
+original .pyx files for Cython).  dfsg branch tracks releases while
+removing components which might be absent in upstream source
+distribution (e.g. pymc/gp/Docs) and/or just duplicates of libraries
+provided system-wide (e.g. atlas/blas)
+
+  -- Yaroslav Halchenko
