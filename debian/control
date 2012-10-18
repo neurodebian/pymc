@@ -20,7 +20,7 @@ XS-Python-Version: >= 2.5
 
 Package: python-pymc
 Architecture: any
-Depends: ${misc:Depends}, ${python:Depends},
+Depends: ${misc:Depends}, ${python:Depends}, ${shlibs:Depends},
 	 python-numpy,
 	 python-scipy,
 	 python-matplotlib,
