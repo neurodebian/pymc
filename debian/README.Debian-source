@@ -1,9 +1,14 @@
 Packaging is based straight on the upstream's GIT repository, which
 serves as a canonical source for source distribution tarballs provided
 e.g. from pypi (and source distribution tarballs do not contain the
-original .pyx files for Cython).  dfsg branch tracks releases while
-removing components which might be absent in upstream source
-distribution (e.g. pymc/gp/Docs) and/or just duplicates of libraries
-provided system-wide (e.g. atlas/blas)
+original .pyx files for Cython).  We enabled building of .c files out
+of original .pyx files to stay up-to-date with Cython version in
+Debian (so bugfixes in Cython could propagate via binNMUs of
+dependees) and to ease extended testing of new versions of Cython
+regarding compatibility with packages depending on it.
+
+dfsg branch tracks releases while removing components which might be
+absent in upstream source distribution (e.g. pymc/gp/Docs) and/or just
+duplicates of libraries provided system-wide (e.g. atlas/blas)
 
   -- Yaroslav Halchenko

@@ -9,6 +9,9 @@ include /usr/share/python/python.mk
 	dh $@ --buildsystem=python_distutils --builddirectory=build
 
 override_dh_auto_build:
+	: # Cython pyx sources
+	for f in */*.pyx; do cython $$f; done
+
 	dh_auto_build
 	echo "backend : Agg" >| build/matplotlibrc
 
@@ -43,3 +46,6 @@ override_dh_install:
 override_dh_compress:
 	dh_compress -X.py -X.html -X.css -X.jpg -X.txt -X.js -X.json -X.rtc -X.par -X.bin
 
+override_dh_auto_clean:
+	dh_auto_clean
+	for f in */*.pyx; do rm -f $${f%.pyx}.c; done
