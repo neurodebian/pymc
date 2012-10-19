@@ -1,4 +1,4 @@
 # Compulsory line, this is a version 3 file
 version=3
-opts="filenamemangle=s/.*\/(.*)/pymc-$1\.tar\.gz/" \
+opts="dversionmangle=s/\+ds\d*//,filenamemangle=s/.*\/(.*)/pymc-$1\.tar\.gz/" \
   http://github.com/pymc-devs/pymc/tags .*tarball/v(\d[\d\.a-z]+)
