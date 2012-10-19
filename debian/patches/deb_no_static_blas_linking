@@ -1,0 +1,28 @@
+From: Yaroslav Halchenko <debian@onerussian.com>
+Subject: Do not staticly link again blas pieces if those will be dynamicly linked anyways due to lapack_info
+
++ throw exception if no blas/lapack was found
+
+Origin: Debian
+Last-Update: 2012-10-19
+
+--- a/setup.py
++++ b/setup.py
+@@ -69,6 +69,8 @@ except:
+ if lapack_info:
+     config.add_extension(name='gp.linalg_utils',sources=['pymc/gp/linalg_utils.f','pymc/blas_wrap.f'], extra_info=lapack_info)
+     config.add_extension(name='gp.incomplete_chol',sources=['pymc/gp/incomplete_chol.f'], extra_info=lapack_info)
++else:
++    raise RuntimeError("Debian build requires system-wide presence of blas/lapack")
+ 
+ if not lapack_info or dist in ['bdist', 'sdist']:
+     print('No optimized BLAS or Lapack libraries found, building from source. This may take a while...')
+@@ -86,7 +88,7 @@ if not lapack_info or dist in ['bdist',
+ 
+ # Compile covariance functions
+ config.add_extension(name='gp.cov_funs.isotropic_cov_funs',\
+-sources=['pymc/gp/cov_funs/isotropic_cov_funs.f','blas/BLAS/dscal.f'],\
++sources=['pymc/gp/cov_funs/isotropic_cov_funs.f'],\
+ extra_info=lapack_info)
+ 
+ config.add_extension(name='gp.cov_funs.distances',sources=['pymc/gp/cov_funs/distances.f'], extra_info=lapack_info)

@@ -1,1 +1,2 @@
 deb_htmldoc_path
+deb_no_static_blas_linking
