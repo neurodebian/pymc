@@ -1,4 +1,4 @@
-pymc (2.2-1) unstable; urgency=low
+pymc (2.2+ds-1) unstable; urgency=low
 
   * Initial Debian release (Closes: #690800)
 
