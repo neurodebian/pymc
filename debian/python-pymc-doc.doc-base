@@ -1,0 +1,9 @@
+Document: pymc
+Title: PyMC User's Guide
+Author: PyMC Developers
+Abstract: This manual describes PyMC Python module
+Section: Science/Data Analysis
+
+Format: HTML
+Index: /usr/share/doc/python-pymc-doc/html/index.html
+Files: /usr/share/doc/python-pymc-doc/html/*.html
