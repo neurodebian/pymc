@@ -11,44 +11,75 @@ License: Expat
 
 Files: cephes
 Copyright: 1984-2000 Steve Moshier <steve@moshier.net>
-License: BSD-3
-Comment: clarify either it is strictly GPL or was re-released under BSD-3 since
- contained it is contained in scipy which is BSD-3
+License:
+ This code comes from the CEPHES library. Although the library sources itself
+ contains no proper license statement, the copyright holder previously agreed
+ to release it under the terms of the GPL. This is documented in the Debian
+ packaging of the labplot package. Please see
+ .
+ http://packages.debian.org/changelogs/pool/main/l/labplot/labplot_1.5.1-1/labplot.copyright
+ .
+ for references.
+ .
+ Here is a verbatim copy of the statement:
+ .
+   This email from Steve Moshier, the copyright owner of cephes, to Helen
+   Faulkner (Debian maintainer of labplot), and other interested parties
+   (labplot and grace authors, grace maintainer and labplot sponsor), confirms
+   that we may release labplot with cephes licensed under the GPL.
+ .
+ .
+   -------- Original Message --------
+   Subject: Re: licensing of cephes
+   Date: Sun, 2 Jan 2005 21:48:02 -0500 (EST)
+   From: Steve Moshier <steve@moshier.net>
+   To: Helen Faulkner <helen_ml_faulkner@yahoo.co.uk>
+   CC: twerner@debian.org, Ben Burton <bab@debian.org>, evgeny@stambulchik.net,
+   Stefan Gerlach <gerlach@mbi-berlin.de>
+   References: <41D14354.4040506@yahoo.co.uk>
+   <Pine.LNX.4.58.0412280836250.9987@moshier.net>
+   <41D17BE3.3020708@yahoo.co.uk>
+   <Pine.LNX.4.58.0412281219420.10873@moshier.net>
+   <41D1FB8D.6030002@yahoo.co.uk>
+   <Pine.LNX.4.58.0412291032190.15474@moshier.net>
+   <41D2D8EF.9010702@yahoo.co.uk>
+   <Pine.LNX.4.58.0412291632540.17032@moshier.net>
+   <41D41B2E.80508@yahoo.co.uk>
+ .
+ .
+ .
+   On Thu, 30 Dec 2004, Helen Faulkner wrote:
+ .
+   >   http://www.debian.org/social_contract#guidelines
+ .
+   This is fine with me.  To acknowedge your terms explicily,
+   how about augmenting the permission to read something like
+   the following --
+ .
+     This software is derived from the Cephes Math Library. It is
+     incorporated herein, and licensed in accordance with DFSG,
+     by permission of the author.
+ .
+ .
+   If you are trying to get me to suggest a specific form for your
+   license, then from looking at Debian programs such as dpkg it seems to
+   me that you would find the GPL to be appropriate and the permission
+   statement could reference one of the GPL documents instead of DFSG.
+   Alternatively, the packages you have been talking about distributing
+   with Debian presumably come with some sort of licenses and it would
+   make sense to propose those licenses.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL'.
 
 Files: pymc/six.py
 Copyright: 2010-2011 Benjamin Peterson
 License: Expat
 
-
 Files: debian/*
 Copyright: 2012, Yaroslav Halchenko <debian@onerussian.com>
 License: Expat
 
-
-License: BSD-3
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  .
-    a. Redistributions of source code must retain the above copyright notice,
-       this list of conditions and the following disclaimer.
-    b. Redistributions in binary form must reproduce the above copyright
-       notice, this list of conditions and the following disclaimer in the
-       documentation and/or other materials provided with the distribution.
-    c. Neither the name of the Enthought nor the names of its contributors
-       may be used to endorse or promote products derived from this software
-       without specific prior written permission.
-  .
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR
-  ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
-  DAMAGE.
 
 License: Expat
   Permission is hereby granted, free of charge, to any person obtaining a copy
