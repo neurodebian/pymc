@@ -4,14 +4,15 @@ Priority: extra
 Maintainer: NeuroDebian Team <team@neuro.debian.net>
 Uploaders: Michael Hanke <michael.hanke@gmail.com>, Yaroslav Halchenko <debian@onerussian.com>
 Build-Depends: debhelper (>= 7.2.18),
-	       python-all-dev (>= 2.5),
-	       python-numpy (>= 1.6),
-	       python-scipy,
-	       python-nose,
-	       python-sphinx,
-	       cython,
-	       python-tables,
-	       python-matplotlib,
+               gfortran, liblapack-dev,
+               python-all-dev (>= 2.5),
+               python-numpy (>= 1.6),
+               python-scipy,
+               python-nose,
+               python-sphinx,
+               cython,
+               python-tables,
+               python-matplotlib,
 Standards-Version: 3.9.3
 Homepage: http://pymc-devs.github.com/pymc/
 Vcs-Browser: https://github.com/neurodebian/pymc
@@ -21,10 +22,10 @@ XS-Python-Version: >= 2.5
 Package: python-pymc
 Architecture: any
 Depends: ${misc:Depends}, ${python:Depends}, ${shlibs:Depends},
-	 python-numpy,
-	 python-scipy,
-	 python-matplotlib,
-	 python-nose
+         python-numpy,
+         python-scipy,
+         python-matplotlib,
+         python-nose
 Recommends: python-tables,
 Suggests: python-pydot, ipython
 Description: Bayesian statistical models and fitting algorithms
