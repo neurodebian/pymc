@@ -2,7 +2,7 @@ Source: pymc
 Section: python
 Priority: extra
 Maintainer: NeuroDebian Team <team@neuro.debian.net>
-Uploaders: Michael Hanke <michael.hanke@gmail.com>, Yaroslav Halchenko <debian@onerussian.com>
+Uploaders: Yaroslav Halchenko <debian@onerussian.com>, Michael Hanke <michael.hanke@gmail.com>
 Build-Depends: debhelper (>= 7.2.18),
                gfortran, liblapack-dev,
                python-all-dev (>= 2.5),

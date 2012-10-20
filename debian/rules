@@ -1,7 +1,17 @@
 #!/usr/bin/make -f
 # -*- mode: makefile; coding: utf-8 -*-
 
+# override HOME (for weave) and matplotlib config directory
+# to allow building in chroots with read-only HOME
+export HOME=$(CURDIR)/build
+export MPLCONFIGDIR=$(HOME)
+
 include /usr/share/python/python.mk
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	export OPT+=-O0
+	export FOPT+=-O0
+endif
 
 # one rule to rule them all ...
 %:
@@ -17,8 +27,6 @@ override_dh_auto_build:
 
 	: # and docs
 	PYTHONPATH=$(CURDIR)/$(call py_builddir_sh) \
-	  MPLCONFIGDIR=$(CURDIR)/build \
-	  HOME=$(CURDIR)/build \
 	  $(MAKE) -C docs html
 	: # but remove jquery copy (later on link to Debian's version)
 	-rm build/html/_static/jquery.js
@@ -32,7 +40,6 @@ override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	for v in $(shell pyversions -vr); do \
 		echo "I: Running PyMC unittests using python$$v"; \
-		MPLCONFIGDIR=$(CURDIR)/build HOME=$(CURDIR)/build \
 		 python$$v /usr/bin/nosetests -v -s $(call py_builddir_sh, $$v)/pymc || exit 1 ;\
 	done
 endif
