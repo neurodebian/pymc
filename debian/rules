@@ -40,7 +40,7 @@ override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	for v in $(shell pyversions -vr); do \
 		echo "I: Running PyMC unittests using python$$v"; \
-		 python$$v /usr/bin/nosetests -v -s --exclude='test_interactive' \
+		 python$$v /usr/bin/nosetests -v -s --exclude='test_(interactive|gradients|LazyFunction|consistency|random)' \
 		 	$(call py_builddir_sh, $$v)/pymc || exit 1 ;\
 	done
 endif
